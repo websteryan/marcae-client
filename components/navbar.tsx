@@ -48,8 +48,8 @@ export default function NavBar() {
           <img src={logoSrc} alt="Ícone" className="w-full h-auto max-w-[150px]" />
         </NavbarBrand>
         <NavbarItem>
-          <Button as={Link} variant="light" size="sm">
-            Navbar Item
+          <Button as={Link} href="/estabelecimentos" variant="light" size="sm">
+            Estabelecimentos
           </Button>
         </NavbarItem>
         <NavbarItem>
