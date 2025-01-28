@@ -20,18 +20,18 @@ const ServicosPage = () => {
   const [bannerUrl, setBannerUrl] = useState<string | null>(null);
 
   const { estabelecimentoId } = useParams();
-  const estabelecimentoIdStr = Array.isArray(estabelecimentoId) ? estabelecimentoId[0] : estabelecimentoId;
+  const estabelecimentoIdStr = Array.isArray(estabelecimentoId) ? estabelecimentoId[0] : estabelecimentoId || "";
 
   useEffect(() => {
     if (!estabelecimentoIdStr) return;
 
     // Função para buscar o banner do estabelecimento
     const fetchBanner = async () => {
-      const docRef = doc(db, "estabelecimentos", estabelecimentoIdStr); // Corrigido: Passando o ID corretamente
+      const docRef = doc(db, "estabelecimentos", estabelecimentoIdStr);
       const docSnap = await getDoc(docRef);
 
       if (docSnap.exists()) {
-        setBannerUrl(docSnap.data()?.bannerUrl || null); // Atualiza o estado com a URL do banner
+        setBannerUrl(docSnap.data()?.bannerUrl || null);
       }
     };
 
@@ -75,7 +75,7 @@ const ServicosPage = () => {
   }, [estabelecimentoIdStr]);
 
   const handleAgendar = async (values: any) => {
-    if (!selectedServico || !selectedDate || !selectedTime) return;
+    if (!selectedServico || !selectedDate || !selectedTime || !estabelecimentoIdStr) return;
 
     try {
       const date = selectedDate.toISOString().split("T")[0];
@@ -127,7 +127,6 @@ const ServicosPage = () => {
         <>
           {estabelecimentoInfo && (
             <div className="mb-6">
-              {/* Exibe o banner se houver */}
               {bannerUrl ? (
                 <div className="relative rounded-lg overflow-hidden">
                   <img
@@ -151,7 +150,6 @@ const ServicosPage = () => {
             </div>
           )}
 
-          {/* Lista de serviços */}
           <div>
             <h2 className="text-lg font-semibold mb-4">Serviços</h2>
             <div className="grid grid-cols-1 gap-4">
@@ -161,13 +159,12 @@ const ServicosPage = () => {
                   nome={servico.nome}
                   preco={servico.preco}
                   duracao={servico.duracao}
-                  onSelect={() => setSelectedServico(servico)} // Associa a função de selecionar serviço
+                  onSelect={() => setSelectedServico(servico)}
                 />
               ))}
             </div>
           </div>
 
-          {/* Botão de agendar */}
           <div className="fixed bottom-4 left-0 right-0 px-4">
             <button
               className="w-full py-3 bg-blue-600 text-white text-lg font-bold rounded-lg shadow-md"
@@ -177,7 +174,6 @@ const ServicosPage = () => {
             </button>
           </div>
 
-          {/* Modal de agendamento */}
           {showModal && (
             <AppointmentModal
               isOpen={showModal}
