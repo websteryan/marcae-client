@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import Modal from "react-modal";
 import { ChevronLeft, X, Check, Plus } from "lucide-react"; // Ícones de Check e Plus
-import getHorariosDisponiveis, { Horario } from "../utils/scheduleManager";
+import getHorariosDisponiveis, { Horario } from "@/utils/scheduleManager";
 import DateSelector from "./DateSelector";
 
 
