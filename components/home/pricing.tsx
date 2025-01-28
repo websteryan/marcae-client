@@ -59,7 +59,7 @@ export default function Pricing() {
       id="precos"
     >
       <div className="flex flex-col gap-3" >
-        <h3 className="text-xl font-semibold sm:text-4xl bg-gradient-to-b from-foreground to-muted-foreground text-transparent bg-clip-text">
+        <h3 className="text-3xl font-semibold sm:text-4xl text-center bg-gradient-to-b from-foreground to-muted-foreground text-transparent bg-clip-text">
           Planos para o seu negócio
         </h3>
         <p className="max-w-xl text-muted-foreground text-center">
