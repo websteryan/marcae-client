@@ -5,7 +5,7 @@ import { useTheme } from "next-themes";
 import { MoonIcon, SunIcon } from "@radix-ui/react-icons";
 
 export default function ThemeSwitcher() {
-  const [svg, setSvg] = useState(<MoonIcon />);
+  const [svg, setSvg] = useState(<SunIcon />);
   const { theme, setTheme } = useTheme();
 
   const handleClick = () => {

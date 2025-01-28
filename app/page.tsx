@@ -1,9 +1,11 @@
 import NavBar from "@/components/navbar";
-import Hero from "@/components/hero";
-import Partners from "@/components/partners";
-import Pricing from "@/components/pricing";
-import Faq from "@/components/faq";
-import Footer from "@/components/footer";
+import Hero from "@/components/home/hero";
+import Partners from "@/components/home/partners";
+import Pricing from "@/components/home/pricing";
+import Faq from "@/components/home/faq";
+import Footer from "@/components/home/footer";
+import Features from "@/components/home/features";
+
 
 export default function Home() {
   return (
@@ -11,6 +13,7 @@ export default function Home() {
       <NavBar />
       <Hero />
       <Partners />
+      <Features/>
       <Pricing />
       <Faq />
       <Footer />

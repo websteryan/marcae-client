@@ -206,7 +206,7 @@ export default function Partners() {
         className="flex flex-col gap-3"
       >
         <h2 className="text-xl font-semibold sm:text-2xl bg-gradient-to-b from-foreground to-muted-foreground text-transparent bg-clip-text">
-          Our Partners
+          Tecnologias
         </h2>
       </motion.div>
       <div className="w-full grid grid-cols-3 sm:grid-cols-6 grid-rows-3 sm:grid-rows-1 gap-5 place-items-center">

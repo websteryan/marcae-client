@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { useParams } from "next/navigation";
 import { db } from "@/firebase/firebase";
 import { collection, doc, getDoc, getDocs } from "firebase/firestore";
-import ServiceCard from "@/components/ServiceCard";
+import ServiceCard from "@/components/estabelecimentoComponents/ServiceCard";
 import AppointmentModal from "@/components/AppointmentModal";
 import { adicionarAgendamento } from "@/firebase/firebaseUtils";
 

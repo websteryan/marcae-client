@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import getHorariosDisponiveis, { Horario } from '../utils/scheduleManager';
+import getHorariosDisponiveis, { Horario } from '../../utils/scheduleManager';
 
 interface ListaHorariosProps {
   estabelecimentoId: string;

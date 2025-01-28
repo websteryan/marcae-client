@@ -1,6 +1,9 @@
 import type { Config } from "tailwindcss";
 import { nextui } from "@nextui-org/react";
 
+/** @type {import('tailwindcss').Config} */
+
+
 const config: Config = {
   darkMode: ["class", "class"], // Permite alternar temas com base na classe 'dark'
   content: [
@@ -11,6 +14,12 @@ const config: Config = {
   ],
   theme: {
   	extend: {
+  		fontFamily: {
+  			sans: [
+  				'Inter',
+  				'sans-serif'
+  			]
+  		},
   		colors: {
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',
@@ -59,10 +68,37 @@ const config: Config = {
   			lg: 'var(--radius)',
   			md: 'calc(var(--radius) - 2px)',
   			sm: 'calc(var(--radius) - 4px)'
-  		}
+  		},
+  		animation: {
+  			'background-gradient': 'background-gradient var(--background-gradient-speed, 15s) cubic-bezier(0.445, 0.05, 0.55, 0.95) infinite'
+  		},
+  		keyframes: {
+  			'background-gradient': {
+  				'0%, 100%': {
+  					transform: 'translate(0, 0)',
+  					animationDelay: 'var(--background-gradient-delay, 0s)'
+  				},
+  				'20%': {
+  					transform: 'translate(calc(100% * var(--tx-1, 1)), calc(100% * var(--ty-1, 1)))'
+  				},
+  				'40%': {
+  					transform: 'translate(calc(100% * var(--tx-2, -1)), calc(100% * var(--ty-2, 1)))'
+  				},
+  				'60%': {
+  					transform: 'translate(calc(100% * var(--tx-3, 1)), calc(100% * var(--ty-3, -1)))'
+  				},
+  				'80%': {
+  					transform: 'translate(calc(100% * var(--tx-4, -1)), calc(100% * var(--ty-4, -1)))'
+  				}
+  			}
+  		},
+  		darkMode: 'class'
   	}
   },
-  plugins: [nextui(), require("tailwindcss-animate")], // Plugin NextUI para garantir que as classes NextUI funcionem
+  plugins: [
+    nextui(), // Plugin NextUI para garantir que as classes NextUI funcionem
+    require("tailwindcss-animate"), // Adicionando o plugin para animações
+  ],
 };
 
 export default config;

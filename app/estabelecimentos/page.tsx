@@ -6,6 +6,7 @@ import { collection, getDocs } from "firebase/firestore";
 import { Button, Link } from "@nextui-org/react";
 import NavBar from "@/components/navbar"; // Assumindo que o Navbar está no diretório components
 
+
 interface Estabelecimento {
   id: string;
   nome: string;
