@@ -52,14 +52,14 @@ export default function NavBar() {
       </NavbarContent>
 
       {/* Menu de Desktop */}
-      <NavbarContent className="hidden sm:flex gap-8" justify="center">
+      <NavbarContent className="hidden sm:flex gap-8 " justify="center">
         <NavbarBrand>
         <a href="/"> <img src={logoSrc} alt="Ícone" className="w-full h-auto max-w-[120px]" /></a>
 
         </NavbarBrand>
         {menuItems.map((item) => (
-          <NavbarItem key={item.label}>
-            <Button as={Link} href={item.href} variant="light" size="sm">
+          <NavbarItem key={item.label} className="justify-c">
+            <Button as={Link} href={item.href} variant="light" size="md">
               {item.label}
             </Button>
           </NavbarItem>
@@ -72,7 +72,6 @@ export default function NavBar() {
           <Button
             as={Link}
             color="primary"
-            href="https://x.com/gonzalochale"
             variant="solid"
             size="sm"
             className="text-white"

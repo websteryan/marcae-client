@@ -3,12 +3,19 @@
 import { Button } from "@nextui-org/button";
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
-import { useDisclosure } from "@nextui-org/use-disclosure";
 import { Link } from "@nextui-org/link";
 import { AnimatedGridPattern } from "../ui/animated-grid-pattern";
+import { Typewriter } from "../ui/typewriter";
+import { useState } from "react";
 
 export default function Hero() {
-  const { isOpen, onOpen, onOpenChange } = useDisclosure();
+  const [showModal, setShowModal] = useState(false);
+
+  // Função para abrir o pop-up
+  const handleOpenModal = () => {
+  
+    setShowModal(true);
+  };
   return (
     <div className="relative justify-center items-center">
       <section className="max-w-screen-xl mx-auto px-4 py-28 gap-12 md:px-8 flex flex-col justify-center items-center">
@@ -34,8 +41,20 @@ export default function Hero() {
           <span className="w-fit h-full text-sm bg-card px-2 py-1 border border-border rounded-full text-[#28282B]">
             Simples, prático e automatizado
           </span>
-          <h1 className="text-4xl font-medium tracking-tighter mx-auto md:text-6xl text-pretty text-[#28282B]">
-            Agenda lotada, zero complicação
+          <h1 className="text-5xl font-medium tracking-tighter mx-auto md:text-6xl text-pretty text-[#28282B]">
+            Agenda cheia, sem <Typewriter
+          text={[
+            "stress",
+            "demora",
+            "esforço",
+            
+          ]}
+          speed={70}
+          className="text-[#006FEE]"
+          waitTime={1500}
+          deleteSpeed={40}
+          cursorChar={"_"}
+        />
           </h1>
           <p className="max-w-2xl text-lg mx-auto text-muted-foreground text-balance font-normal">
             Configure em minutos e comece a crescer
@@ -44,10 +63,10 @@ export default function Hero() {
             whileHover={{ scale: 1.05 }}
             className="items-center justify-center gap-x-3 space-y-3 sm:flex sm:space-y-0"
           >
-            <Button onPress={onOpen} color="primary" variant="shadow" className="text-white">
+            <Button onPress={handleOpenModal} color="primary" variant="shadow" className="text-white">
               Saiba mais
             </Button>
-            
+           
           </motion.div>
         </motion.div>
       </section>
